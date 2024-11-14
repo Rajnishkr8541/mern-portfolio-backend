@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const dbConnection = () => {
   const dburl = "mongodb+srv://rajnishkr85419:Rajnishkr123@portfolio.tq1hj.mongodb.net/?retryWrites=true"
   mongoose.connect( dburl, {
-    dbName: "PORTFOLIO", // Specifies the name of the database
+    dbName: "Portfolio", // Specifies the name of the database
   })
     .then(() => {
       console.log(`Database Connected`); // Successful connection log

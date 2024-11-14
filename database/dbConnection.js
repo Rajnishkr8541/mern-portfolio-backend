@@ -2,7 +2,8 @@ import mongoose from "mongoose";
 
 // Function to connect to MongoDB
 const dbConnection = () => {
-  mongoose.connect(process.env.MONGO_URI, {
+  const dburl = "mongodb+srv://rajnishkr85419:Rajnishkr123@portfolio.tq1hj.mongodb.net/?retryWrites=true"
+  mongoose.connect( dburl, {
     dbName: "PORTFOLIO", // Specifies the name of the database
   })
     .then(() => {

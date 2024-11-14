@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken"; // Importing JWT for token verification.
 
 export const isAuthenticated = catchAsyncErrors(async(req, res, next) => {
     const {token} = req.cookies; 
+    console.log(token, "----------------------------------------------->");
     // Extracting the token from cookies, which contains the user's session/token information.
 
     if(!token){
@@ -16,6 +17,7 @@ export const isAuthenticated = catchAsyncErrors(async(req, res, next) => {
     // Verifies the token using the JWT secret key. If the token is valid, it decodes and returns the payload (e.g., user ID).
 
     req.user = await User.findById(decoded.id); 
+    console.log(req.user, "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
     // The decoded token contains the user ID. This line fetches the user from the database using the decoded ID and assigns it to the request object (`req.user`).
 
     next(); 

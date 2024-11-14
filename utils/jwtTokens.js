@@ -9,7 +9,8 @@ export const generateToken = (user, message, statusCode, res) => {
       Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000 // Cookie expiration time in milliseconds
     ),
     // Set cookie to be HTTP only to help prevent XSS attacks
-    httpOnly: true
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production"
   }).json({
     success: true, // Indicate success
     message,       // Provide a message (e.g., "Login successful")

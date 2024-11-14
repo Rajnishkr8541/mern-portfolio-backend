@@ -4,7 +4,7 @@ import { User } from "../models/userSchema.js"; // Importing User model
 import { v2 as cloudinary } from "cloudinary"; // Importing Cloudinary for file uploads
 import { generateToken } from "../utils/jwtTokens.js"; // Utility for generating JWT tokens
 import { sendEmail } from "../utils/sendEmail.js"; // Utility for sending emails
-import crypto from "crypto"; // For generating secure tokens
+import crypto from "crypto"; // For 
 
 // User registration route
 export const register = catchAsyncErrors(async (req, res, next) => {
@@ -185,7 +185,11 @@ export const updatePassword = catchAsyncErrors(async (req, res, next) => {
 // Get user for portfolio
 export const getUserForPortfolio = catchAsyncErrors(async (req, res, next) => {
   const id = "671216281ce1e7fbd7ebd964"; // Fixed user ID for portfolio
+  console.log(id, '============================================>');
+  
   const user = await User.findById(id); // Find user by ID
+  console.log(user , "----------------------------------------------------->");
+  
   res.status(200).json({ success: true, user }); // Return user data
 });
 

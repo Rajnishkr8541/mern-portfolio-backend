@@ -5,12 +5,11 @@ export const generateToken = (user, message, statusCode, res) => {
   // Set the token in a cookie and send the response
   res.status(statusCode).cookie("token", token, {
     // Set the expiration date of the cookie
-    expire: new Date(
+    expires: new Date(
       Date.now() + process.env.COOKIE_EXPIRES * 24 * 60 * 60 * 1000 // Cookie expiration time in milliseconds
     ),
     // Set cookie to be HTTP only to help prevent XSS attacks
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production"
   }).json({
     success: true, // Indicate success
     message,       // Provide a message (e.g., "Login successful")

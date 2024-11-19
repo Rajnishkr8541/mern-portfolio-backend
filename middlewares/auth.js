@@ -4,7 +4,7 @@ import ErrorHandler from "./error.js"; // Error handler class to throw custom er
 import jwt from "jsonwebtoken"; // Importing JWT for token verification.
 
 export const isAuthenticated = catchAsyncErrors(async(req, res, next) => {
-    console.log('Cookies:=======', req.cookies);
+    
 
     const {token} = req.cookies; 
 
